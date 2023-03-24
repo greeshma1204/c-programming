@@ -1,0 +1,104 @@
+Write a program to enter the marks of a student in four subjects. Then calculate the
+total and aggregate, display the grade obtained by the student. If the student scores an
+aggregate greater than 75%, then the grade is Distinction. If aggregate is 60>= and <75,
+then the grade is First Division. If aggregate is 50 >= and <60, then the grade is Second
+Division. If aggregate is 40>= and <50, then the grade is Third Division. Else the grade
+is Fail.
+Sample Input & Output:
+Enter the marks in python: 90
+Enter the marks in c programming: 91
+Enter the marks in Mathematics: 92
+Enter the marks in Physics: 93
+Total= 366
+Aggregate = 91.5
+DISTINCTION
+Test cases:
+a) 18, 76,93,65
+b) 73,78,79,75
+c) 98,106,120,95
+d) 96,73, -85,95
+e) 78,59.8,76,79
+
+#include <stdio.h>
+
+int main()
+{
+    int python, cprogramming,  math, physics; 
+    float per;
+    int total; 
+
+    /* Input marks of five subjects from user */
+    printf("Enter four subjects marks: ");
+    scanf("%d%d%d%d", &python, &cprogramming, &math, &physics);
+    total=python+cprogramming+math+physics;
+    printf("total=%d\n",total);
+
+    /* Calculate percentage */
+    per = (python+cprogramming+math+physics) / 4.0;
+
+    printf("Percentage = %.2f\n", per);
+
+
+    /* Find grade according to the percentage */
+    if(per >= 75)
+    {
+        printf("Distinction");
+    }
+    else if(60<=per<=75)
+    {
+        printf("First division");
+    }
+    else if(50<=per<=60)
+    {
+        printf("Second division");
+    }
+    else if(40<=per<=50)
+    {
+        printf("Third division");
+    }
+    else
+    {
+        printf("fail");
+    }
+
+    return 0;
+}
+
+output:
+A.)Enter four subjects marks: 18
+76
+93
+65
+total=252
+Percentage = 63.00
+First division
+
+B.)Enter four subjects marks: 73
+78
+79
+75
+total=305
+Percentage = 76.25
+Distinction
+
+C.)Enter four subjects marks: 98
+106
+120
+95
+total=419
+Percentage = 104.75
+Distinction
+
+D.)Enter four subjects marks: 96
+73
+-85
+95
+INVALID INPUT
+
+E.)Enter four subjects marks: 78
+59.8
+76
+79
+total=292.8
+Percentage = 73.2
+First division
